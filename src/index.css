@@ -1,0 +1,65 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200,300,400;500;600;700&display=swap');
+
+
+:root {
+  font-family: 'Poppins',system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+
+  color-scheme: light dark;
+  color: rgba(0, 0, 0, 0.87);
+  --purpal-color:#AA2AE1;
+  --gray-color:#868383;
+  --light-gray:#ECECEC;
+  --light-gray-text:#1e2939;
+
+  background-color: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.navbar-option{
+  color: black;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color .3s ease-in-out;
+}
+
+.navbar-option:hover{
+  color:var(--purpal-color) ;
+}
+
+.hero-title{
+  font-family: 'Source Sans Pro';
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.hero-subtitle{
+  font-size: 18px;
+  font-weight: 400;
+  color: black;
+  margin-bottom: 24px;
+}
+
+.font-source{
+  font-family:'Source Sans Pro' ;
+}
+
+.about-me{
+  font-weight: 500;
+  font-size: larger;
+  margin-bottom:16px;
+  color: #1e2939;
+  font-family: 'Source Sans Pro';
+}
+
+.project-description{
+  font-weight: 500;
+  font-size: larger;
+  color: #1e2939;
+  font-family: 'Source Sans Pro';
+}
