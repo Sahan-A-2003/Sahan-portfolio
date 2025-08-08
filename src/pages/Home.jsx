@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, Links } from 'react-router-dom';
 import HeroImage from '../assets/hero.jpg'
 import bookImage from '../assets/book-dark.svg'
 import githubImage from '../assets/github-dark.svg'
@@ -44,9 +44,11 @@ const Home = () => {
             A Final-Year Software Engineering Student building full-stack web apps that solve
             everyday challenges and enhance user experiences.
           </p>
-          <button className="bg-violet-600 hover:bg-violet-700 text-white px-6 py-3 rounded-full font-semibold transition">
-            Project
-          </button>
+          <Link to="/">
+            <button className="bg-violet-600 hover:bg-violet-700 text-white px-6 py-3 rounded-full font-semibold transition">
+              Project
+            </button>
+          </Link>
         </div>
       </div>
 
