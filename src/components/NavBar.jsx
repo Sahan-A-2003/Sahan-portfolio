@@ -8,12 +8,16 @@ const NavBar = () => {
       <div className="w-full px-12 py-3 flex justify-between items-center">
         {/* Left: Logo + Name */}
         <div className="flex items-center gap-3">
-          <img
-            src={Profile}
-            alt="Sahan Asantha"
-            className="w-15 h-15 rounded-full border-none  object-cover"
-          />
-          <h2 className="text-2xl cursor-pointer font-bold text-gray-800 tracking-wide">SAHAN ASANTHA</h2>
+          <Link to="/" className="flex items-center gap-3">
+            <img
+              src={Profile}
+              alt="Sahan Asantha"
+              className="w-15 h-15 rounded-full border-none object-cover"
+            />
+            <h2 className="text-2xl cursor-pointer font-bold text-gray-800 tracking-wide">
+              SAHAN ASANTHA
+            </h2>
+          </Link>
         </div>
 
         {/* Right: Navigation Links */}

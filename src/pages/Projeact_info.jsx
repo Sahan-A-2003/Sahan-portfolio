@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useEffect, useRef } from "react";
+import { initMagnetoEffect } from "../animations/buttonAnimations";
 import { Link, Links } from 'react-router-dom';
 import HeroImage from '../assets/hero.jpg'
 import fitzone from '../assets/fitzone.png'
 
 const Projeact_info = () => {
+
+  const magnetoRef = useRef(null);
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    const cleanup = initMagnetoEffect(magnetoRef, textRef);
+    return cleanup;
+  }, []);
+
   return (
     <div className='w-full'>
       <div className="relative h-dvh w-full">
@@ -23,8 +33,8 @@ const Projeact_info = () => {
             This page contains the case study of Dopefolio Open-Source Project which includes the Project Overview, Tools Used and Live Links to the official product.
           </p>
           <Link to="/">
-            <button className="bg-violet-600 hover:bg-violet-700 text-white w-36 h-36 rounded-full font-semibold flex items-center justify-center transition">
-              Project Link
+            <button ref={magnetoRef} className="magneto">
+              <span ref={textRef} className='text'>Project Link</span>
             </button>
           </Link>
         </div>

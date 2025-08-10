@@ -21,6 +21,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .navbar-option{
   color: black;
   font-weight: 600;
@@ -62,4 +66,25 @@
   font-size: larger;
   color: #1e2939;
   font-family: 'Source Sans Pro';
+}
+
+.magneto{
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--purpal-color);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.4s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.magneto:hover {
+  background:  black ;
+  color: white;
 }

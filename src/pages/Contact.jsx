@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useEffect, useRef } from "react";
+import { initMagnetoEffect } from "../animations/buttonAnimations";
 import { Link, Links } from 'react-router-dom';
 import backGrounImage from '../assets/hero.jpg'
 
 const contact = () => {
+
+  const magnetoRef = useRef(null);
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    const cleanup = initMagnetoEffect(magnetoRef, textRef);
+    return cleanup;
+  }, []);
+
   return (
-<div className="w-full min-h-screen flex flex-col items-center justify-center bg-gray-100 py-10 px-4 relative overflow-hidden">
+<div className="w-full min-h-screen flex flex-col items-center justify-center bg-gray-100 pb-10 relative overflow-hidden">
   {/* Background Image */}
   <div className="absolute inset-0 z-0">
     <img
@@ -14,9 +24,9 @@ const contact = () => {
     />
   </div>
 
-  {/* Content Container with z-index */}
-  <div className="relative z-10 w-full max-w-xl text-black text-center mb-8">
-    <h2 className="text-4xl font-bold font-source mb-2">
+  {/* Content Container */}
+  <div data-aos="fade" data-aos-delay="200" className="relative z-10 w-full text-black text-center mb-8 p-4 cursor-pointer bg-transparent hover:bg-black hover:text-white transition-colors duration-300">
+    <h2 className="text-5xl font-bold font-source my-3">
       Contact Me
     </h2>
     <p className='font-source'>
@@ -25,7 +35,7 @@ const contact = () => {
   </div>
 
   {/* Form card */}
-  <div className="relative z-10 bg-white bg-opacity-90 shadow-lg rounded-xl w-full max-w-xl p-8">
+  <div data-aos="fade-up" data-aos-delay="200" className="relative z-10 bg-white bg-opacity-90 shadow-lg rounded-xl w-full max-w-4xl p-8">
     <form className="space-y-6" method="POST" aria-label="Contact form">
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
@@ -35,7 +45,8 @@ const contact = () => {
           type="text"
           id="name"
           required
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition duration-200"
+          placeholder="Enter Your Name.."
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 ring-[var(--purpal-color)] transition duration-200"
         />
       </div>
 
@@ -47,7 +58,8 @@ const contact = () => {
           type="email"
           id="email"
           required
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 transition duration-200"
+          placeholder="Enter Your EmailAddres.."
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 ring-[var(--purpal-color)] transition duration-200"
         />
       </div>
 
@@ -60,7 +72,9 @@ const contact = () => {
           name="message"
           rows="5"
           required
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 resize-none transition duration-200"
+          placeholder="Enter Your Massege.."
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-[var(--purpal-color)] resize-none transition duration-200"
+
         ></textarea>
       </div>
 
@@ -68,8 +82,8 @@ const contact = () => {
          <Link to="/" >
             <button
             type="submit"
-            className="bg-violet-600 hover:bg-violet-700 text-white w-26 h-26 rounded-full font-semibold flex items-center justify-center transition">
-              Submit
+            ref={magnetoRef} className="magneto">
+              <span ref={textRef} className='text'>Submit</span>
             </button>
           </Link>
       </div>

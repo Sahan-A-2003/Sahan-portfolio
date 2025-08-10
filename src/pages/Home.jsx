@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect, useRef } from "react";
+import { initMagnetoEffect } from "../animations/buttonAnimations";
 import { Link, Links } from 'react-router-dom';
 import HeroImage from '../assets/hero.jpg'
 import bookImage from '../assets/book-dark.svg'
@@ -9,6 +10,15 @@ import youtubeImage from '../assets/yt-dark.svg'
 import fitzone from '../assets/fitzone.png'
 
 const Home = () => {
+
+  const magnetoRef = useRef(null);
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    const cleanup = initMagnetoEffect(magnetoRef, textRef);
+    return cleanup;
+  }, []);
+
   return (
     <div className="w-full">
       <div className="relative h-dvh w-full">
@@ -21,7 +31,7 @@ const Home = () => {
 
         <div className="absolute inset-0 bg-black opacity-20 z-10" />
 
-        <div className="absolute top-1/3 left-0 z-30 flex bg-[var(--light-gray)] flex-col rounded-br-3xl rounded-tr-3xl p-4 gap-4">
+        <div data-aos="fade-right" data-aos-delay="200" className="absolute top-1/3 left-0 z-30 flex bg-[var(--light-gray)] flex-col rounded-br-3xl rounded-tr-3xl p-4 gap-4">
           <a href="#" target="_blank" rel="noopener noreferrer">
             <img src={linkedinImage} alt="LinkedIn" className="w-7 hover:scale-110 transition" />
           </a>
@@ -36,24 +46,24 @@ const Home = () => {
           </a>
         </div>
 
-        <div className="absolute z-20 inset-0 flex flex-col justify-center items-center text-center px-4">
-          <h1 className="text-black text-4xl md:text-5xl lg:text-7xl mb-4 hero-title">
+        <div  data-aos="fade-up" data-aos-delay="100" className="absolute z-20 inset-0 flex flex-col justify-center items-center text-center px-4">
+          <h1 className="text-black text-4xl md:text-5xl lg:text-7xl mb-4 hero-title cursor-default">
             HEY, I'M SAHAN ASANTHA
           </h1>
-          <p className="max-w-2xl hero-subtitle font-source text-3xl font-normal my-5">
+          <p className="max-w-2xl hero-subtitle font-source text-3xl font-normal my-5 cursor-default">
             A Final-Year Software Engineering Student building full-stack web apps that solve
             everyday challenges and enhance user experiences.
           </p>
           <Link to="/">
-            <button className="bg-violet-600 hover:bg-violet-700 text-white px-6 py-3 rounded-full font-semibold transition">
-              Project
+            <button ref={magnetoRef} className="magneto">
+              <span ref={textRef} className='text'>Project</span>
             </button>
           </Link>
         </div>
       </div>
 
-      <div className="w-full bg-gray-100 py-12 px-6 md:px-40">
-        <div className="text-center mb-12">
+      <div className="w-full bg-gray-100 py-12 px-6 md:px-40 cursor-default">
+        <div data-aos="fade-up" data-aos-delay="200" className="text-center mb-12">
           <div className="text-center">
             <h2 className="text-4xl font-bold text-gray-800 mb-2">About Me</h2>
             <div className="mx-auto w-24 h-1.5 rounded-full bg-[var(--purpal-color)] mb-4"></div>
@@ -65,7 +75,7 @@ const Home = () => {
 
         <div className="grid md:grid-cols-2 gap-10 items-start">
         
-          <div className="text-left">
+          <div data-aos="fade-right" data-aos-delay="400" className="text-left">
             <h3 className="text-2xl font-semibold text-gray-800 mb-4">Get to know me!</h3>
             <p className="about-me">
               I'm a Full-Stack Web Developer with a strong passion for building responsive, user-friendly websites and web applications that deliver real value. Be sure to check out some of my work in the <span className="font-bold text-[var(--purpal-color)]">Projects</span> section.
@@ -84,7 +94,7 @@ const Home = () => {
             </Link>
           </div>
 
-          <div>
+          <div data-aos="fade-left" data-aos-delay="400">
             <h3 className="text-2xl font-semibold text-gray-800 mb-6">My Skills</h3>
             <div className="flex flex-wrap gap-4 cursor-default">
               {["HTML", "CSS", "JavaScript", "React", "Tailwind CSS", "Laravel", "MySQL", "Git","Github", "Responsive Design", "PHP", ".NET", "Terminal"].map((skill) => (
@@ -101,24 +111,25 @@ const Home = () => {
       </div>
 
       {/*Project section*/}
-      <div className="w-full bg-white px-20 md:px-40 my-8">
-        <div className="w-full text-center my-8 mt-15">
+      <div className="w-full bg-white px-20 md:px-40 my-8 cursor-default">
+        <div data-aos="fade-up" data-aos-delay="100" className="w-full text-center my-8 mt-15">
           <div className="text-center my-8">
             <h2 className="text-4xl font-bold text-[var(--light-gray-text)] mb-3">Project</h2>
             <div className="mx-auto w-16 h-1.5 rounded-full bg-[var(--purpal-color)] mb-4"></div>
           </div>
-          <p className='max-w-4xl text-[var(--light-gray-text)] text-[18px] font-semibold font-source mx-auto'>Here you will find some of the personal and University projects that I created with each project containing its own case study</p>
+          <p className='max-w-4xl text-[var(--light-gray-text)] text-[18px] font-source mx-auto'>Here you will find some of the personal and University projects that I created with each project containing its own case study</p>
         </div>
 
         <div className="grid grid-rows-3 mt-10 gap-12">
          
-          <div className="w-full flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="w-full flex flex-col md:flex-row justify-between items-center gap-18 py-12 border-b-2 border-[var(--gray-color)]">
             <img
+              data-aos="fade-right" data-aos-delay="200"
               src={fitzone}
               alt="Project 1"
-              className="w-full md:w-1/2 h-auto object-cover rounded-xl shadow-lg"
+              className="w-full h-auto md:w-1/2 max-h-80 object-cover rounded-xl shadow-lg"
             />
-            <div className="text-left md:w-1/2">
+            <div data-aos="fade-left" data-aos-delay="200" className="text-left md:w-1/2">
               <h3 className="text-2xl font-bold mb-3">Dopefolio</h3>
               <p className="project-description">
                 Dopefolio is a successful Open-Source project that I created which has
@@ -133,13 +144,14 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="w-full flex flex-col md:flex-row-reverse justify-between items-center gap-8">
+          <div className="w-full flex flex-col md:flex-row-reverse justify-between items-center gap-8  py-12 border-b-2 border-[var(--gray-color)]">
             <img
+              data-aos="fade-left" data-aos-delay="200"
               src={fitzone}
               alt="Project 2"
               className="w-full md:w-1/2 h-auto object-cover rounded-xl shadow-lg"
             />
-            <div className="text-left md:w-1/2">
+            <div data-aos="fade-right" data-aos-delay="200" className="text-left md:w-1/2">
               <h3 className="text-2xl font-bold mb-3">DevConnect</h3>
               <p className="project-description">
                 DevConnect is a collaborative platform I developed to help developers
@@ -153,13 +165,14 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="w-full flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="w-full flex flex-col md:flex-row justify-between items-center gap-18 pt-12 border-none">
             <img
+              data-aos="fade-right" data-aos-delay="200"
               src={fitzone}
               alt="Project 3"
               className="w-full md:w-1/2 h-auto object-cover rounded-xl shadow-lg"
             />
-            <div className="text-left md:w-1/2">
+            <div data-aos="fade-left" data-aos-delay="200" className="text-left md:w-1/2">
               <h3 className="text-2xl font-bold mb-3">Portfolio Builder</h3>
               <p className="project-description">
                 A sleek portfolio builder tool that allows developers and designers to
