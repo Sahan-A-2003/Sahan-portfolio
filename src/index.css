@@ -12,6 +12,8 @@
   --gray-color:#868383;
   --light-gray:#ECECEC;
   --light-gray-text:#1e2939;
+  --black-color:#000000;
+  --white-color:#fff;
 
   background-color: #ffffff;
 
@@ -86,5 +88,25 @@ html {
 
 .magneto:hover {
   background:  black ;
+  color: white;
+}
+
+.normal-btn {
+  margin-top: 1.5rem;           
+  padding: 0.75rem 1.5rem;      
+  background-color: var(--purpal-color);
+  color: var(--light-gray-text);
+  font-weight: bold;
+  font-size: 1.125rem;          
+  border-radius: 1rem;           
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+}
+
+.normal-btn:hover {
+  transform: scale(1.05);
+  background-color: black;
   color: white;
 }

@@ -1,13 +1,19 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { initMagnetoEffect } from "../animations/buttonAnimations";
-import { Link, Links } from 'react-router-dom';
+import { Link, Links, useParams  } from 'react-router-dom';
 import HeroImage from '../assets/hero.jpg'
 import fitzone from '../assets/fitzone.png'
+import projects from "../data/projects";
 
 const Projeact_info = () => {
 
   const magnetoRef = useRef(null);
   const textRef = useRef(null);
+  const { id } = useParams();
+  const project = projects.find((p) => p.id === parseInt(id));
+  const [selectedImage, setSelectedImage] = useState(project ? project.images[0] : null);
+
+  if (!project) return <p>Project not found!</p>;
 
   useEffect(() => {
     const cleanup = initMagnetoEffect(magnetoRef, textRef);
@@ -27,12 +33,12 @@ const Projeact_info = () => {
 
         <div className="absolute z-20 inset-0 flex flex-col justify-center items-center text-center px-4">
           <h1 className="text-black text-4xl md:text-5xl lg:text-7xl mb-4 hero-title">
-           Dopefolio
+            {project.title}
           </h1>
           <p className="max-w-2xl hero-subtitle font-source text-3xl font-normal my-5">
-            This page contains the case study of Dopefolio Open-Source Project which includes the Project Overview, Tools Used and Live Links to the official product.
+            {project.description}
           </p>
-          <Link to="/">
+          <Link to={project.github_Link} target="_blank">
             <button ref={magnetoRef} className="magneto">
               <span ref={textRef} className='text'>Project Link</span>
             </button>
@@ -41,65 +47,94 @@ const Projeact_info = () => {
       </div>
 
       {/*project Image Section*/}
-      <div className="w-full flex flex-wrap gap-4 justify-center my-8 px-14">
-        <div className="w-[450px] h-[250px] rounded-3xl overflow-hidden border border-gray-300 shadow-md">
-          <img src={fitzone} alt="Fitzone 1" className="w-full h-full object-cover" />
-        </div>
+      <div className="w-full flex flex-col gap-4 justify-center my-8 pb-2 px-14 ">
+        {/* Big Image */}
+        {selectedImage && (
+          <div className="w-full h-[600px] rounded-3xl overflow-hidden border border-gray-300 shadow-md mb-4">
+            <img
+              src={selectedImage}
+              alt="Main Project"
+              className="w-full h-full object-fill transition-all duration-500"
+            />
+          </div>
+        )}
 
-        <div className="w-[450px] h-[250px] rounded-3xl overflow-hidden border border-gray-300 shadow-md">
-          <img src={fitzone} alt="Fitzone 2" className="w-full h-full object-cover" />
-        </div>
-
-        <div className="w-[450px] h-[250px] rounded-3xl overflow-hidden border border-gray-300 shadow-md">
-          <img src={fitzone} alt="Fitzone 3" className="w-full h-full object-cover" />
-        </div>
-
-        <div className="w-[450px] h-[250px] rounded-3xl overflow-hidden border border-gray-300 shadow-md">
-          <img src={fitzone} alt="Fitzone 3" className="w-full h-full object-cover" />
-        </div>
-
-        <div className="w-[450px] h-[250px] rounded-3xl overflow-hidden border border-gray-300 shadow-md">
-          <img src={fitzone} alt="Fitzone 3" className="w-full h-full object-cover" />
+        {/* Small images */}
+        <div className="flex flex-wrap gap-4 justify-center">
+          {project.images.map((img, index) => (
+            <div
+              key={index}
+              className={`w-[120px] h-[80px] rounded-[10px] overflow-hidden border-2 ${
+                selectedImage === img ? "border-purple-500" : "border-gray-300"
+              } shadow-md cursor-pointer`}
+              onClick={() => setSelectedImage(img)}
+            >
+              <img
+                src={img}
+                alt={`Thumbnail ${index + 1}`}
+                className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Project orver View*/}
+    {/* Project Overview */}
       <div className="w-full px-32 my-12">
         <h2 className='font-semibold text-2xl font-source text-[var(--light-gray-text)] '>Project Overview</h2>
-        <p className='font-source mt-6'>
-            Dopefolio is an Open-Source project which is a simple and clean multi-page portfolio website template for developers. I created this project for developers to quickly build a good-looking and fast-performing multi-page portfolio without having to code their portfolio from scratch.
-          </p>
+        
+        {project.overview.split("\n").map((paragraph, index) => (
+          <p key={index} className="font-source mt-4">{paragraph}</p>
+        ))}
 
-          <p className='font-source  mt-4'>
-            Since the launch of this project, it has received more than 2k stars on GitHub and it has also got featured on hundreds of sites. CSS-Tricks.com has also featured this template as the hottest frontend tool of 2021 in one of their articles which you can find here.
-          </p>
+        {project.overview_Fontend && project.overview_Fontend.length > 0 && (
+          <div className="mt-8 px-4">
+            <h3 className="font-semibold text-xl font-source mb-2">Frontend</h3>
+            <ul className=" px-4 list-disc list-inside font-source text-[var(--light-gray-text)]">
+              {project.overview_Fontend.map((item, index) => (
+                <li key={index} className="mt-1">{item}</li>
+              ))}
+            </ul>
+          </div>
+        )}
 
-          <p className='font-source mt-4'>
-            Dopefolio is now being used by thousands of developers globally and it has helped many people in landing jobs & opportunities which makes me happy that my creation is helping other people in building their careers.
-          </p>
+        {project.overview_backend && project.overview_backend.length > 0 && (
+          <div className="mt-6 px-4">
+            <h3 className="font-semibold text-xl font-source mb-2">Backend</h3>
+            <ul className=" px-4 list-disc list-inside font-source text-[var(--light-gray-text)]">
+              {project.overview_backend.map((item, index) => (
+                <li key={index} className="mt-1">{item}</li>
+              ))}
+            </ul>
+          </div>
+        )}
 
-          <p className='font-source mt-4'>
-            It has many other features like Dopefolio's repo contains a playground link which people can use to test the template with different theme colours to find their own preferred primary colour for the template.
-          </p>
-
-          <p className='font-source mt-4'>
-            Feel free to check out the Project by visiting the Project Link.
-          </p>
+        {project.overview_Key_Features && project.overview_Key_Features.length > 0 && (
+          <div className="mt-6 px-4">
+            <h3 className="font-semibold text-xl font-source mb-2">Key Features</h3>
+            <ul className=" px-4 list-disc list-inside font-source text-[var(--light-gray-text)]">
+              {project.overview_Key_Features.map((item, index) => (
+                <li key={index} className="mt-1">{item}</li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
+
 
       {/*Tools Used*/}
       <div className="w-full px-32 mb-8">
         <h2 className='font-semibold text-2xl font-source text-[var(--light-gray-text)] mb-6'>Tools Used</h2>
         <div className="flex flex-wrap gap-4 cursor-default">
-              {["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"].map((skill) => (
-                <span
-                  key={skill}
-                  className="bg-[var(--light-gray)] text-gray-800 px-4 py-2 rounded-[10px] shadow text-sm font-medium"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
+          {project.tech.map((skill) => (
+            <span
+              key={skill}
+              className="bg-[var(--light-gray)] text-gray-800 px-4 py-2 rounded-[10px] shadow text-sm font-medium"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
       </div>
 
       {/*Souce Link*/}
@@ -108,15 +143,17 @@ const Projeact_info = () => {
           See Live
         </h2>
         <div className="flex gap-4">
-          <Link
-            to="/source-code"
-            className="bg-[var(--purpal-color)] text-[var(--light-gray-text)] px-4 py-2 rounded-2xl hover:bg-purple-800 transition"
+          <a
+            href={project.github_Link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="normal-btn"
           >
             Source Code
-          </Link>
+          </a>
           <Link
             to="/contact"
-            className="border border-[var(--purpal-color)] text-[var(--purpal-color)] px-4 py-2 rounded-2xl hover:bg-[var(--purpal-color)] hover:text-white transition"
+            className="mt-6 px-6 py-3 bg-[var(--black-color)] text-[var(--white-color)] font-bold text-lg rounded-2xl border border-transparent hover:border-[var(--purpal-color)] hover:text-[var(--black-color)] hover:bg-[var(--white-color)] transform transition duration-300 ease-in-out hover:scale-105 cursor-pointer text-center inline-block"
           >
             Contact Me
           </Link>

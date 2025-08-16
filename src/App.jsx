@@ -11,6 +11,7 @@ import Contact from './pages/contact'
 import Footer from './components/Footer';
 import Projeact_info from './pages/Projeact_info';
 import ScrollToTop from "./components/ScrollToTop";
+import About from "./pages/About";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -30,7 +31,9 @@ function App() {
     <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Project />} />
+        <Route path="/project/:id" element={<Projeact_info />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/projeact_info" element={<Projeact_info />} />
       </Routes>

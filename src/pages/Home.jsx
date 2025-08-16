@@ -1,13 +1,14 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { initMagnetoEffect } from "../animations/buttonAnimations";
 import { Link, Links } from 'react-router-dom';
+
 import HeroImage from '../assets/hero.jpg'
 import bookImage from '../assets/book-dark.svg'
 import githubImage from '../assets/github-dark.svg'
 import linkedinImage from '../assets/linkedin-dark.svg'
 import youtubeImage from '../assets/yt-dark.svg'
 
-import fitzone from '../assets/fitzone.png'
+import MainProjeact from "../components/MainProjeact";
 
 const Home = () => {
 
@@ -88,7 +89,7 @@ const Home = () => {
             </p>
             
             <Link to="/contact">
-              <button className="mt-6 px-6 py-3 bg-[var(--purpal-color)] text-white font-bold text-lg rounded-2xl transition duration-300 transform hover:scale-105 hover:text-black cursor-pointer text-center">
+              <button className="normal-btn">
                 Contact Me
               </button>
             </Link>
@@ -111,80 +112,17 @@ const Home = () => {
       </div>
 
       {/*Project section*/}
-      <div className="w-full bg-white px-20 md:px-40 my-8 cursor-default">
-        <div data-aos="fade-up" data-aos-delay="100" className="w-full text-center my-8 mt-15">
-          <div className="text-center my-8">
-            <h2 className="text-4xl font-bold text-[var(--light-gray-text)] mb-3">Project</h2>
-            <div className="mx-auto w-16 h-1.5 rounded-full bg-[var(--purpal-color)] mb-4"></div>
-          </div>
-          <p className='max-w-4xl text-[var(--light-gray-text)] text-[18px] font-source mx-auto'>Here you will find some of the personal and University projects that I created with each project containing its own case study</p>
+      <div className="w-full bg-white px-8 md:px-40 my-8 cursor-default">
+        <div data-aos="fade-up" data-aos-delay="100" className="w-full text-center my-8">
+          <h2 className="text-4xl font-bold text-[var(--light-gray-text)] mb-3">Projects</h2>
+          <div className="mx-auto w-16 h-1.5 rounded-full bg-[var(--purpal-color)] mb-4"></div>
+          <p className='max-w-4xl text-[var(--light-gray-text)] text-[18px] font-source mx-auto'>
+            Here you will find some of the personal and University projects that I created with each project containing its own case study
+          </p>
         </div>
 
-        <div className="grid grid-rows-3 mt-10 gap-12">
-         
-          <div className="w-full flex flex-col md:flex-row justify-between items-center gap-18 py-12 border-b-2 border-[var(--gray-color)]">
-            <img
-              data-aos="fade-right" data-aos-delay="200"
-              src={fitzone}
-              alt="Project 1"
-              className="w-full h-auto md:w-1/2 max-h-80 object-cover rounded-xl shadow-lg"
-            />
-            <div data-aos="fade-left" data-aos-delay="200" className="text-left md:w-1/2">
-              <h3 className="text-2xl font-bold mb-3">Dopefolio</h3>
-              <p className="project-description">
-                Dopefolio is a successful Open-Source project that I created which has
-                been featured on some of the biggest tech sites like CSS-Tricks,
-                Hostinger, etc & used by thousands of developers globally.
-              </p>
-              <Link to="/contact">
-                <button className="mt-6 px-6 py-3 bg-[var(--purpal-color)] text-white font-bold text-lg rounded-2xl transition duration-300 transform hover:scale-105 hover:text-black cursor-pointer text-center">
-                  Case Study
-                </button>
-              </Link>
-            </div>
-          </div>
-
-          <div className="w-full flex flex-col md:flex-row-reverse justify-between items-center gap-8  py-12 border-b-2 border-[var(--gray-color)]">
-            <img
-              data-aos="fade-left" data-aos-delay="200"
-              src={fitzone}
-              alt="Project 2"
-              className="w-full md:w-1/2 h-auto object-cover rounded-xl shadow-lg"
-            />
-            <div data-aos="fade-right" data-aos-delay="200" className="text-left md:w-1/2">
-              <h3 className="text-2xl font-bold mb-3">DevConnect</h3>
-              <p className="project-description">
-                DevConnect is a collaborative platform I developed to help developers
-                build teams, share ideas, and contribute to open-source projects.
-              </p>
-              <Link to="/contact">
-                <button className="mt-6 px-6 py-3 bg-[var(--purpal-color)] text-white font-bold text-lg rounded-2xl transition duration-300 transform hover:scale-105 hover:text-black cursor-pointer text-center">
-                  Case Study
-                </button>
-              </Link>
-            </div>
-          </div>
-
-          <div className="w-full flex flex-col md:flex-row justify-between items-center gap-18 pt-12 border-none">
-            <img
-              data-aos="fade-right" data-aos-delay="200"
-              src={fitzone}
-              alt="Project 3"
-              className="w-full md:w-1/2 h-auto object-cover rounded-xl shadow-lg"
-            />
-            <div data-aos="fade-left" data-aos-delay="200" className="text-left md:w-1/2">
-              <h3 className="text-2xl font-bold mb-3">Portfolio Builder</h3>
-              <p className="project-description">
-                A sleek portfolio builder tool that allows developers and designers to
-                showcase their work using modern UI/UX and fully responsive templates.
-              </p>
-              <Link to="/contact">
-                <button className="mt-6 px-6 py-3 bg-[var(--purpal-color)] text-white font-bold text-lg rounded-2xl transition duration-300 transform hover:scale-105 hover:text-black cursor-pointer text-center">
-                  Case Study
-                </button>
-              </Link>
-            </div>
-          </div>
+        <div className="flex flex-col gap-12 mt-10">
+          <MainProjeact />
         </div>
       </div>
     </div>
