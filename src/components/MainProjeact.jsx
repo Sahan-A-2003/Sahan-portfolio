@@ -49,7 +49,15 @@ const MainProjeact = () => {
                 data-aos-delay="200"
                 className="text-left md:w-1/2"
               >
-                <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
+                <h3 className="text-2xl font-bold mb-3 relative inline-block group">
+                  <Link 
+                    to={`/project/${project.id}`} 
+                    state={{ project }}  
+                  >
+                    {project.title}
+                  </Link>
+                  <span className="absolute left-0 -bottom-1 w-0 h-1 bg-purple-500 rounded-full transition-all duration-300 group-hover:w-full"></span>
+                </h3>
                 <p className="project-description mb-4">{project.description}</p>
                 <Link to={project.github_Link}>
                   <button className="normal-btn">
