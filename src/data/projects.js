@@ -1,9 +1,23 @@
-import fitzoneImg1 from '../assets/Fitzone/fitzone.png';
+//Fitzonw
+import fitzoneImg1 from '../assets/Fitzone/home page.png';
 import fitzoneImg2 from '../assets/Fitzone/fitzone 2.png';
 import fitzoneImg3 from '../assets/Fitzone/fitzone 3.png';
 import fitzoneImg4 from '../assets/Fitzone/fitzone 4.png';
 import fitzoneImg5 from '../assets/Fitzone/fitzone 5.png';
 
+//AIMS
+import aimsImg1 from '../assets/AIMS/home page.png';
+import aimsImg2 from '../assets/AIMS/about us.png';
+import aimsImg3 from '../assets/AIMS/aims database.png';
+import aimsImg4 from '../assets/AIMS/dasbord.png';
+import aimsImg5 from '../assets/AIMS/faqs.png';
+
+//SPC
+import spcImg1 from '../assets/SPC/dashbord.png';
+import spcImg2 from '../assets/SPC/new drug.png';
+import spcImg3 from '../assets/SPC/order.png';
+import spcImg4 from '../assets/SPC/register new supplies.png';
+import spcImg5 from '../assets/SPC/srearch.png';
 
 const projects =[
   {
@@ -38,16 +52,16 @@ const projects =[
     description:"The Fitzone Fitness Center website is a modern, user-friendly platform offering services, membership plans, schedules, diet tips, and secure user management with a sleek design.",
     short_Description:"Fitzone website offers fitness services, memberships, schedules, and healthy tips.",
     tech: ["React", "Tailwind CSS", "Laravel", "MySQL"],
-    github_Link: "https://example.com/aims"
+    github_Link: "https://github.com/Sahan-A-2003/Fitzone-Fitness-Center.git"
   },
   {
     id: 2,
     images: [
-      fitzoneImg1,
-      fitzoneImg2,
-      fitzoneImg3,
-      fitzoneImg4,
-      fitzoneImg5,
+      aimsImg1,
+      aimsImg2,
+      aimsImg3,
+      aimsImg4,
+      aimsImg5,
     ],
     title: "Automated Issue Management System (AIMS)",
     overview: "The Automated Issue Management System (AIMS) is a centralized web-based platform developed to enhance the efficiency of complaint handling within multi-branch organizations. Traditional methods such as verbal communication, email threads, and handwritten logbooks often lead to delays, miscommunication, and lack of accountability, resulting in employee dissatisfaction and operational inefficiencies. AIMS addresses these challenges by providing a structured workflow that allows users to submit complaints, agents to resolve issues, and managers to oversee and approve escalations. With real-time status tracking, automated notifications, and role-based access, the system ensures transparency, accountability, and timely resolution of issues.\n\nDesigned with scalability, security, and usability in mind, AIMS integrates modern technologies to deliver a reliable solution for complaint management. The platform features user-friendly dashboards, complaint lifecycle tracking, and detailed reporting to support data-driven decision-making. By streamlining communication and automating repetitive tasks, AIMS not only reduces the time taken to resolve issues but also improves organizational productivity and employee satisfaction. This makes it a robust and future-ready system for organizations aiming to optimize internal processes and enhance overall efficiency.",
@@ -76,16 +90,16 @@ const projects =[
     description: "AIMS is a web-based complaint management platform that streamlines reporting, tracking, and resolution with role-based access, real-time updates, and automated workflows for transparency and efficiency.",
     short_Description: "AIMS manages complaints with structured workflows, real-time updates, and secure role-based access.",
     tech: ["React", "Tailwind CSS", "Laravel", "MySQL"],
-    github_Link: "https://example.com/aims"
+    github_Link: "https://github.com/Sahan-A-2003/AIMS-System.git"
   },
   {
     id: 3,
     images: [
-      fitzoneImg1,
-      fitzoneImg2,
-      fitzoneImg3,
-      fitzoneImg4,
-      fitzoneImg5,
+      spcImg1,
+      spcImg2,
+      spcImg3,
+      spcImg4,
+      spcImg5,
     ],
     title: "State Pharmaceutical Corporation (SPC)",
     overview: "The State Pharmaceutical Corporation (SPC) is modernizing its pharmaceutical manufacturing, distribution, and procurement processes through a digital transformation. Traditional monolithic systems are limited by tight coupling, difficult scaling, high downtime risks, and integration challenges. By adopting a Service-Oriented Architecture (SOA), SPC divides its operations into independent, reusable services with APIs that communicate seamlessly. This approach enhances maintainability, scalability, and reliability while enabling integration with branch systems, production facilities, and external pharmacies. The system also supports future growth with modular, cloud-ready services.",
@@ -113,7 +127,7 @@ const projects =[
     description: "SPC's SOA system modernizes pharmaceutical operations by splitting workflows into independent, API-driven services. It ensures scalability, reliability, secure data handling, and easy integration with internal and external systems.",
     short_Description: "SPC SOA system modularizes pharma operations with scalable, API-driven services.",
     tech: ["C#", ".NET", "HTML", "SCSS", "TypeScript", "SQL Server"],
-    github_Link: "https://example.com/spc-soa"
+    github_Link: "https://github.com/Sahan-A-2003/SPC-State-Pharmaceutical-Corporation-.git"
   }
 
 

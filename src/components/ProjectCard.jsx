@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const ProjectCard = ({ project }) => {
-
+const ProjectCard = ({ project, changeInterval = 3000 }) => {
   const navigate = useNavigate();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [fade, setFade] = useState(true);
@@ -15,13 +14,15 @@ const ProjectCard = ({ project }) => {
     const interval = setInterval(() => {
       setFade(false);
       setTimeout(() => {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % project.images.length);
+        setCurrentImageIndex(
+          (prevIndex) => (prevIndex + 1) % project.images.length
+        );
         setFade(true);
-      }, 500);
-    }, 4000);
+      }, 300); 
+    }, changeInterval);
 
     return () => clearInterval(interval);
-  }, [project.images.length]);
+  }, [project.images.length, changeInterval]);
 
   return (
     <div
@@ -33,7 +34,9 @@ const ProjectCard = ({ project }) => {
       <img
         src={project.images[currentImageIndex]}
         alt={project.title}
-        className={`w-full h-full object-cover transform transition-opacity duration-500 ${fade ? "opacity-100" : "opacity-0"}`}
+        className={`w-full h-full object-cover transform transition-opacity duration-500 ${
+          fade ? "opacity-100" : "opacity-0"
+        }`}
       />
 
       <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-70 transition duration-300"></div>

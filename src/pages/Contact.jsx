@@ -13,8 +13,8 @@ const Contact = () => {
   }, []);
 
   return (
-    <div className="w-full min-h-screen flex flex-col items-center justify-center bg-gray-100 pb-10 relative overflow-hidden">
-      {/* Background Image */}
+    <div className="w-full min-h-screen flex flex-col items-center justify-center bg-gray-100 pb-10 px-8 md:px-14 lg:px-[72px] xl:px-40 relative overflow-hidden">
+      
       <div className="absolute inset-0 z-0">
         <img
           src={backGrounImage}

@@ -20,7 +20,7 @@ const About = () => {
 
 
   return (
-    <div className="w-full">
+    <div className="w-full bg-[var(--white-color)]">
       <div className="relative h-dvh w-full">
 
         <img
@@ -64,7 +64,7 @@ const About = () => {
         {/* Skills */}
         <section className="px-8 md:px-32 pt-12 bg-[var(--light-gray-bg)] text-center">
           <h3 data-aos="fade-right" className="text-left py-8 text-2xl"><span className="text-3xl text-[var(--purpal-color)] px-3">-</span>Skills & Tools</h3>
-          <div data-aos="fade" data-aos-delay="200" className="flex flex-wrap gap-4">
+          <div data-aos="fade" data-aos-delay="200" className="flex px-12 flex-wrap gap-4">
             {skillsAndTools.map((skill, index) => (
               <span 
                 key={index} 
@@ -106,7 +106,7 @@ const About = () => {
           {certificates.length > 5 && !showAll && (
             <div className="flex justify-center mt-6">
               <button
-                className="px-6 py-3 bg-purple-500 text-white rounded-2xl font-semibold hover:bg-purple-600 transition-colors"
+                className="px-6 py-2 bg-[var(--light-gray)] text-[var(--black-color)] rounded-2xl font-semibold hover:bg-[var(--gray-color)] duration-400 cursor-pointer "
                 onClick={() => setShowAll(true)}
               >
                 See More
@@ -139,7 +139,7 @@ const About = () => {
                 <img
                   src={selectedCert.file}
                   alt={selectedCert.title}
-                  className="w-full h-auto max-h-[80vh] rounded"
+                  className="w-full h-auto max-h-[80vh] object-contain rounded"
                 />
               </div>
             </div>
