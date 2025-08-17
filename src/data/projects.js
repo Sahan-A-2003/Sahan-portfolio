@@ -1,23 +1,23 @@
 //Fitzonw
-import fitzoneImg1 from '../assets/Fitzone/home page.png';
-import fitzoneImg2 from '../assets/Fitzone/fitzone 2.png';
-import fitzoneImg3 from '../assets/Fitzone/fitzone 3.png';
-import fitzoneImg4 from '../assets/Fitzone/fitzone 4.png';
-import fitzoneImg5 from '../assets/Fitzone/fitzone 5.png';
+import fitzoneImg1 from '../assets/Fitzone/home page.jpg';
+import fitzoneImg2 from '../assets/Fitzone/fitzone 2.jpg';
+import fitzoneImg3 from '../assets/Fitzone/fitzone 3.jpg';
+import fitzoneImg4 from '../assets/Fitzone/fitzone 4.jpg';
+import fitzoneImg5 from '../assets/Fitzone/fitzone 5.jpg';
 
 //AIMS
-import aimsImg1 from '../assets/AIMS/home page.png';
-import aimsImg2 from '../assets/AIMS/about us.png';
-import aimsImg3 from '../assets/AIMS/aims database.png';
-import aimsImg4 from '../assets/AIMS/dasbord.png';
-import aimsImg5 from '../assets/AIMS/faqs.png';
+import aimsImg1 from '../assets/AIMS/home page.jpg';
+import aimsImg2 from '../assets/AIMS/about us.jpg';
+import aimsImg3 from '../assets/AIMS/aims database.jpg';
+import aimsImg4 from '../assets/AIMS/dasbord.jpg';
+import aimsImg5 from '../assets/AIMS/faqs.jpg';
 
 //SPC
-import spcImg1 from '../assets/SPC/dashbord.png';
-import spcImg2 from '../assets/SPC/new drug.png';
-import spcImg3 from '../assets/SPC/order.png';
-import spcImg4 from '../assets/SPC/register new supplies.png';
-import spcImg5 from '../assets/SPC/srearch.png';
+import spcImg1 from '../assets/SPC/dashbord.jpg';
+import spcImg2 from '../assets/SPC/new drug.jpg';
+import spcImg3 from '../assets/SPC/order.jpg';
+import spcImg4 from '../assets/SPC/register new supplies.jpg';
+import spcImg5 from '../assets/SPC/srearch.jpg';
 
 const projects =[
   {
