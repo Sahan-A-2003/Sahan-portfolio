@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { initMagnetoEffect } from "../animations/buttonAnimations";
 import { Link } from "react-router-dom";
 import backGrounImage from "../assets/hero.jpg";
+import sendMail from "../../Script"
 
 const Contact = () => {
   const magnetoRef = useRef(null);
@@ -99,8 +100,8 @@ const Contact = () => {
           </div>
 
           <div className="text-center flex justify-center">
-            <Link to="/">
-              <button type="submit" ref={magnetoRef} className="magneto">
+            <Link to="/contact">
+              <button type="submit" onClick={sendMail} ref={magnetoRef} className="magneto">
                 <span ref={textRef} className="text">
                   Submit
                 </span>
